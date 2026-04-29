@@ -75,21 +75,26 @@ def set_png_as_page_bg(bin_file):
     bin_str = get_base64_of_bin_file(bin_file)
     page_bg_img = f'''
     <style>
+    /* 1. Background Utama */
     .stApp {{
         background-image: url("data:image/png;base64,{bin_str}");
         background-size: cover;
         background-attachment: fixed;
     }}
-    #MainMenu {{visibility: hidden;}}
-    footer {{visibility: hidden;}}
-    header {{visibility: hidden;}}
-    
-    /* Agar box konten tetap terbaca dengan latar belakang gambar */
+
+    /* 2. Sembunyikan Header, Footer, dan Menu Streamlit */
+    header, footer, .stDeployButton, #MainMenu, [data-testid="stToolbar"] {{
+        visibility: hidden;
+        height: 0%;
+    }}
+
+    /* 3. Styling Sidebar */
     [data-testid="stSidebar"] {{
         background-color: rgba(0, 8, 20, 0.8) !important;
         backdrop-filter: blur(10px);
     }}
-    
+
+    /* 4. Styling Kartu Konten & Expander */
     .main-card, div[data-testid="stExpander"] {{
         background-color: rgba(1, 42, 74, 0.6) !important;
         backdrop-filter: blur(5px);
