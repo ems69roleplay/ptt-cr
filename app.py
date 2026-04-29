@@ -80,6 +80,9 @@ def set_png_as_page_bg(bin_file):
         background-size: cover;
         background-attachment: fixed;
     }}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    stDecoration {display:none;}
     
     /* Agar box konten tetap terbaca dengan latar belakang gambar */
     [data-testid="stSidebar"] {{
