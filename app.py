@@ -82,11 +82,17 @@ def set_png_as_page_bg(bin_file):
         background-attachment: fixed;
     }}
 
-    /* 2. Sembunyikan Header, Footer, dan Menu Streamlit */
-    header, footer, .stDeployButton, #MainMenu, [data-testid="stToolbar"] {{
-        visibility: hidden;
-        height: 0%;
-    }}
+    /* 2. Sembunyikan Semua Elemen Streamlit (Total Clean) */
+    header, footer, .stDeployButton, #MainMenu, [data-testid="stToolbar"], [data-testid="stDecoration"] {
+        display: none !important;
+    }
+    
+    /* Tambahan khusus untuk tombol bantuan di pojok kanan bawah */
+    button[title="View source code"], 
+    button[data-testid="stActionButton"],
+    .stApp > div:first-child > div:first-child > div:first-child > div:first-child {
+        display: none !important;
+    }
 
     /* 3. Styling Sidebar */
     [data-testid="stSidebar"] {{
